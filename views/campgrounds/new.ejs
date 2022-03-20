@@ -1,0 +1,87 @@
+<% layout('layouts/boilerplate') %>
+<link rel="stylesheet" href="/stylesheets/images.css" class="rel" />
+<div class="row">
+  <h1 class="text-center">New Campground</h1>
+  <div class="col-6 offset-3">
+    <form
+      action="/campgrounds"
+      method="POST"
+      novalidate
+      class="validated-form"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label for="campTitle" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="campTitle"
+          name="campground[title]"
+          aria-describedby="campTitle"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="row g-2">
+        <div class="col-sm-8 mb3">
+          <label for="campLocation" class="form-label">Location</label>
+          <input
+            type="text"
+            class="form-control"
+            id="campLocation"
+            name="campground[location]"
+            required
+          />
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+        <div class="col-sm mb3">
+          <label for="campPrice" class="form-label">Price</label>
+          <div class="input-group">
+            <span class="input-group-text" id="addon-wrapping">$</span>
+            <input
+              type="text"
+              class="form-control"
+              id="campPrice"
+              name="campground[price]"
+              placeholder="0.00"
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb3">
+        <div class="form-file custom-file">
+          <input
+            class="form-control custom-file-input"
+            type="file"
+            id="image"
+            name="image"
+            multiple
+            onchange="previewMultiple(event)"
+          />
+          <label for="image" class="form-label custom-file-label"></label>
+        </div>
+        <div id="formFile"></div>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="description"
+          rows="4"
+          name="campground[description]"
+          required
+        ></textarea>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <button type="submit" class="btn btn-success">Add Campground</button>
+      <a href="/campgrounds" class="btn btn-outline-secondary"
+        >All Campgrounds</a
+      >
+    </form>
+  </div>
+</div>
